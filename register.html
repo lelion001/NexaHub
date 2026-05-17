@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G-legacy - Enskripsyon</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #0f2027; color: white; padding: 40px 20px; display: flex; justify-content: center; }
+        .form-container { background: rgba(255,255,255,0.1); padding: 30px; border-radius: 10px; max-width: 500px; width: 100%; box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+        h2 { text-align: center; color: #00ffcc; margin-bottom: 20px; }
+        label { display: block; margin: 15px 0 5px; font-weight: bold; }
+        input[type="text"], select { width: 100%; padding: 10px; border: none; border-radius: 5px; margin-bottom: 10px; font-size: 1rem; }
+        .checkbox-group { margin: 10px 0; }
+        .checkbox-group label { display: inline; font-weight: normal; margin-left: 10px; }
+        button { width: 100%; background: #00ffcc; color: #111; padding: 12px; border: none; border-radius: 5px; font-size: 1.1rem; font-weight: bold; cursor: pointer; margin-top: 20px; }
+        button:hover { background: #00b38f; }
+        a { color: #00ffcc; text-decoration: none; display: block; text-align: center; margin-top: 15px; }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Fòm Enskripsyon G-legacy</h2>
+    <form action="#" method="POST">
+        <label>Non Ranpli</label>
+        <input type="text" placeholder="Ekri non ak siyen ou" required>
+
+        <label>Kote ou rete (Adrès)</label>
+        <input type="text" placeholder="Egz: Pòtoprens, Ayiti" required>
+
+        <label>Chwazi sa ou vle aprann yo (Ou ka pran plizyè):</label>
+        <div class="checkbox-group"><input type="checkbox" id="c1" value="Tikomik"><label for="c1">Kreye Tikomik (Peyan)</label></div>
+        <div class="checkbox-group"><input type="checkbox" id="c2" value="App"><label for="c2">Kreye Aplikasyon (Peyan)</label></div>
+        <div class="checkbox-group"><input type="checkbox" id="c3" value="Savon"><label for="c3">Fè Savon Natirèl (Peyan)</label></div>
+        <div class="checkbox-group"><input type="checkbox" id="c4" value="Lwil"><label for="c4">Fè Lwil Cheve (Peyan)</label></div>
+        <div class="checkbox-group"><input type="checkbox" id="c5" value="Krem"><label for="c5">Krèm Po (Peyan)</label></div>
+        <div class="checkbox-group"><input type="checkbox" id="c6" value="Pafen"><label for="c6">Pafen (Peyan)</label></div>
+
+        <button type="submit">Voye Enskripsyon</button>
+    </form>
+    <a href="home.html">← Tounen nan Akèy</a>
+</div>
+
+</body>
+</html>

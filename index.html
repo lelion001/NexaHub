@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G-legacy - Byenveni / Welcome</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        .welcome-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            max-width: 400px;
+            width: 90%;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            color: #00ffcc;
+        }
+        p {
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        .lang-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 15px;
+            margin: 15px 0;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: #111;
+            background: white;
+        }
+        .lang-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,255,204,0.4);
+            background: #00ffcc;
+            color: #111;
+        }
+        .flag {
+            font-size: 1.5rem;
+            margin-right: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="welcome-card">
+        <h1>G-legacy</h1>
+        <p>Chwazi yon lang pou kontinye<br><small>Choose a language / Choisissez une langue</small></p>
+        
+        <!-- Tout lyen sa yo ap mennen dirèk sou paj akèy la -->
+        <a href="home.html" class="lang-btn"><span class="flag">🇭🇹</span> Kreyòl</a>
+        <a href="home.html" class="lang-btn"><span class="flag">🇺🇸</span> English</a>
+        <a href="home.html" class="lang-btn"><span class="flag">🇫🇷</span> Français</a>
+    </div>
+
+</body>
+</html>

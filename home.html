@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ht">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G-legacy - Akèy</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background: #f4f7f6; color: #333; }
+        
+        /* Header & Nav */
+        header { background: #0f2027; padding: 20px 10%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .logo { color: #00ffcc; font-size: 1.8rem; font-weight: bold; }
+        nav a { color: white; text-decoration: none; margin-left: 20px; font-weight: 600; transition: 0.3s; }
+        nav a:hover { color: #00ffcc; }
+        .btn-register { background: #00ffcc; color: #111; padding: 8px 20px; border-radius: 20px; }
+        
+        /* Hero Section */
+        .hero { background: linear-gradient(rgba(15,32,39,0.8), rgba(15,32,39,0.8)), url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500') no-repeat center center/cover; height: 400px; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center; padding: 20px; }
+        .hero h1 { font-size: 3rem; margin-bottom: 10px; }
+        
+        /* Sections Jeneral */
+        .container { max-width: 1200px; margin: 50px auto; padding: 0 20px; }
+        h2 { text-align: center; margin-bottom: 40px; font-size: 2.2rem; color: #0f2027; position: relative; }
+        h2::after { content: ''; display: block; width: 60px; height: 4px; background: #00ffcc; margin: 10px auto 0; border-radius: 2px; }
+        
+        /* Grid Sèvis (Shop & Booster) */
+        .grid-services { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-bottom: 60px; }
+        .card-service { background: white; padding: 30px; border-radius: 12px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; border-top: 5px solid #0f2027; }
+        .card-service:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .btn-whatsapp { display: inline-block; background: #25D366; color: white; padding: 10px 20px; text-decoration: none; border-radius: 25px; margin-top: 15px; font-weight: bold; }
+
+        /* Pricing Section */
+        .pricing-table { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
+        .price-card { background: white; border-radius: 15px; padding: 40px 30px; width: 320px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.05); position: relative; overflow: hidden; border: 1px solid #ddd; }
+        .price-card.pro { border: 2px solid #00ffcc; transform: scale(1.05); }
+        .badge { background: #00ffcc; color: #111; padding: 5px 15px; font-size: 0.8rem; font-weight: bold; border-radius: 20px; position: absolute; top: 15px; right: 15px; }
+        .price { font-size: 2.5rem; font-weight: bold; color: #0f2027; margin: 20px 0; }
+        .price-card ul { list-style: none; margin: 20px 0; padding: 0; text-align: left; }
+        .price-card ul li { margin: 12px 0; color: #666; }
+        .price-card ul li::before { content: "✓ "; color: #00ffcc; font-weight: bold; }
+        .btn-plan { display: block; background: #0f2027; color: white; padding: 12px; text-decoration: none; border-radius: 25px; font-weight: bold; transition: 0.3s; }
+        .price-card.pro .btn-plan { background: #00ffcc; color: #111; }
+        
+        /* Footer */
+        footer { background: #0f2027; color: white; text-align: center; padding: 20px; margin-top: 50px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">G-legacy</div>
+        <nav>
+            <a href="home.html">Akèy</a>
+            <a href="cours.html">Kou sou Entènèt</a>
+            <a href="support.html">Sipò / Èd</a>
+            <a href="register.html" class="btn-register">Enskri</a>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h1>Byenveni nan G-legacy</h1>
+        <p>Pi bon platfòm pou ranfòse prezans dijital ou ak aprann nouvo metye.</p>
+    </div>
+
+    <div class="container">
+        <!-- PATI SHOP / BOOSTER -->
+        <h2>Shop & Vizibilite</h2>
+        <div class="grid-services">
+            <div class="card-service">
+                <h3>Chèn WhatsApp</h3>
+                <p>Achte chanèl WhatsApp ki tou pare pou biznis ou.</p>
+                <a href="https://wa.me/50934830635?text=Bonjou,%20mwen%20ta%20renmen%20achte%20yon%20Chèn%20WhatsApp" class="btn-whatsapp" target="_blank">Achte sou WhatsApp</a>
+            </div>
+            <div class="card-service">
+                <h3>Booster TikTok</h3>
+                <p>Ogmante abònman, views ak jèm sou TikTok vit pito.</p>
+                <a href="https://wa.me/50934830635?text=Bonjou,%20mwen%20ta%20renmen%20booster%20paj%20TikTok%20mwen" class="btn-whatsapp" target="_blank">Kòmande Booster</a>
+            </div>
+            <div class="card-service">
+                <h3>Booster Facebook</h3>
+                <p>Gen plis entèraksyon ak abòne sou paj Facebook ou.</p>
+                <a href="https://wa.me/50934830635?text=Bonjou,%20mwen%20ta%20renmen%20booster%20paj%20Facebook%20mwen" class="btn-whatsapp" target="_blank">Kòmande Booster</a>
+            </div>
+        </div>
+
+        <!-- PATI KREYASYON SIT WEB (PLAN YO) -->
+        <h2>Kreyasyon Sit Entènèt (Carrd)</h2>
+        <p style="text-align: center; margin-bottom: 30px; color:#666;">Chwazi yon plan anba a pou ou ka kòmanse kreye sit entènèt ou. Peman an fèt avan pa Natcash.</p>
+        
+        <div class="pricing-table">
+            <!-- Plan Limite -->
+            <div class="price-card">
+                <h3>Plan Limite</h3>
+                <div class="price">20 $</div>
+                <ul>
+                    <li>Kreye jiska 9 sit entènèt</li>
+                    <li>+ 2 Sit kòm Bonis</li>
+                    <li>Sipò estanda pa staf la</li>
+                </ul>
+                <!-- Pral voye itilizatè a peye anvan li al sou carrd -->
+                <a href="pay_natcash.html?plan=limite" class="btn-plan">Chwazi Plan sa</a>
+            </div>
+
+            <!-- Plan Pro -->
+            <div class="price-card pro">
+                <div class="badge">REKÒMANDE</div>
+                <h3>Plan Pro</h3>
+                <div class="price">50 $</div>
+                <ul>
+                    <li>Kreye kantite sit ou vle (Unlimited)</li>
+                    <li>Sit yo la pou tout tan</li>
+                    <li>Sipò priyoritè dirèk ak PDG a</li>
+                </ul>
+                <a href="pay_natcash.html?plan=pro" class="btn-plan">Chwazi Plan sa</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 G-legacy. Tout dwa rezève. Kontak PDG: +1 (904) 318-1164</p>
+    </footer>
+
+</body>
+</html>
