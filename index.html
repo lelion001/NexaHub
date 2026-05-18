@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>NovaMart – Shop | Kours | Kreyasyon</title>
+<title>G-legacy – Shop | Kours | Kreyasyon</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
@@ -38,11 +38,10 @@ body{
   display:flex;flex-direction:column;
   align-items:center;justify-content:center;
   gap:2rem;
-  animation:fadeIn .5s ease;
 }
 #lang-screen h1{
   font-family:'Playfair Display',serif;
-  font-size:clamp(2rem,5vw,3.5rem);
+  font-size:clamp(2.8rem,5vw,4rem);
   background:linear-gradient(135deg,var(--gold),var(--gold-light));
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;
   text-align:center;
@@ -61,16 +60,10 @@ body{
   transition:all .3s ease;
   position:relative;overflow:hidden;
 }
-.lang-btn::before{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(135deg,var(--gold),var(--accent));
-  opacity:0;transition:opacity .3s;
-}
 .lang-btn:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 10px 30px rgba(201,168,76,.2);}
-.lang-btn:hover::before{opacity:.1;}
 .lang-flag{font-size:1.4rem;margin-right:.5rem;}
 
-/* ===== MAIN SITE (hidden until lang chosen) ===== */
+/* ===== MAIN SITE ===== */
 #main-site{display:none;}
 #main-site.show{display:block;}
 
@@ -85,7 +78,7 @@ nav{
 }
 .nav-logo{
   font-family:'Playfair Display',serif;
-  font-size:1.6rem;font-weight:900;
+  font-size:1.8rem;font-weight:900;
   background:linear-gradient(135deg,var(--gold),var(--gold-light));
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;
   cursor:pointer;
@@ -126,14 +119,13 @@ nav{
   border:1px solid var(--gold);color:var(--gold);
   border-radius:20px;font-size:.85rem;font-weight:600;
   letter-spacing:2px;text-transform:uppercase;
-  margin-bottom:1.5rem;animation:fadeInUp .8s .2s both;
+  margin-bottom:1.5rem;
 }
 #home h1{
   font-family:'Playfair Display',serif;
   font-size:clamp(2.8rem,7vw,5.5rem);
   line-height:1.1;
   margin-bottom:1.5rem;
-  animation:fadeInUp .8s .4s both;
 }
 #home h1 span{
   background:linear-gradient(135deg,var(--gold),var(--gold-light),var(--accent2));
@@ -142,9 +134,10 @@ nav{
 #home p.hero-sub{
   font-size:1.2rem;color:var(--muted);max-width:600px;
   margin:0 auto 2.5rem;line-height:1.7;
-  animation:fadeInUp .8s .6s both;
 }
-.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;animation:fadeInUp .8s .8s both;}
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+
+/* ===== BUTTONS ===== */
 .btn-primary{
   padding:.9rem 2.2rem;
   background:linear-gradient(135deg,var(--gold),#A87830);
@@ -189,65 +182,63 @@ section{padding:5rem 2rem;}
 .shop-tab.active,.shop-tab:hover{
   background:var(--gold);color:#0A0A0F;border-color:var(--gold);font-weight:700;
 }
-.shop-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
-  gap:1.5rem;max-width:1200px;margin:0 auto;
+
+/* WhatsApp Links Grid */
+.wha-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:1.5rem;max-width:1100px;margin:0 auto;
 }
-.shop-card{
+.wha-card{
   background:var(--card);border:1px solid var(--border);
   border-radius:var(--radius);overflow:hidden;
-  transition:transform .3s,box-shadow .3s;
-  position:relative;
+  display:flex;flex-direction:column;
+  transition:transform .3s, box-shadow .3s;
 }
-.shop-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.4);}
-.shop-card-img{
-  height:180px;display:flex;align-items:center;justify-content:center;
-  font-size:3.5rem;background:linear-gradient(135deg,var(--dark3),var(--dark));
+.wha-card:hover{transform:translateY(-5px);box-shadow:0 15px 30px rgba(0,0,0,0.5);}
+.wha-img{
+  height:180px;width:100%;object-fit:cover;
+  background:var(--dark3);
 }
-.shop-card-body{padding:1.4rem;}
-.shop-card-title{font-weight:700;font-size:1.1rem;margin-bottom:.4rem;}
-.shop-card-desc{color:var(--muted);font-size:.88rem;line-height:1.6;margin-bottom:1rem;}
-.shop-card-price{
-  display:flex;justify-content:space-between;align-items:center;
+.wha-content{padding:1.5rem;display:flex;flex-direction:column;gap:0.6rem;flex-grow:1;}
+.wha-title{font-weight:700;font-size:1.2rem;}
+.wha-desc{color:var(--muted);font-size:.85rem;line-height:1.5;}
+.wha-price{
+  font-family:'Space Mono',monospace;color:var(--gold);
+  font-size:1.2rem;font-weight:700;margin-top:auto;
 }
-.price{font-family:'Space Mono',monospace;color:var(--gold);font-size:1.1rem;font-weight:700;}
-.add-to-cart{
-  padding:.5rem 1.2rem;background:var(--gold);color:#0A0A0F;
-  border:none;border-radius:8px;cursor:pointer;font-weight:700;font-size:.85rem;
-  transition:all .2s;
+.wha-buy{
+  padding:.7rem 1rem;background:linear-gradient(135deg,#25d366,#128c7e);
+  color:#fff;border:none;border-radius:8px;cursor:pointer;
+  font-weight:700;font-size:.9srem;display:flex;align-items:center;justify-content:center;gap:.5rem;
+  transition:all .2s;width:100%;margin-top:0.5rem;
 }
-.add-to-cart:hover{background:var(--gold-light);}
-.badge{
-  position:absolute;top:.8rem;right:.8rem;
-  background:var(--accent);color:#fff;
-  padding:.2rem .6rem;border-radius:6px;font-size:.75rem;font-weight:700;
-}
+.wha-buy:hover{opacity:.9;}
 
-/* social boost cards */
+/* ===== PLATFORM VIZIBLITE ===== */
 .platform-grid{
-  display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
-  gap:1.2rem;max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:1.5rem;max-width:1100px;margin:0 auto;
 }
 .platform-card{
   background:var(--card);border:1px solid var(--border);
   border-radius:var(--radius);padding:1.5rem;
-  display:flex;flex-direction:column;gap:.8rem;
+  display:flex;flex-direction:column;gap:1rem;
   transition:transform .3s,box-shadow .3s;
 }
 .platform-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.3);}
-.platform-icon{font-size:2rem;}
-.platform-name{font-weight:700;font-size:1.1rem;}
+.platform-header{display:flex;align-items:center;gap:0.8rem;}
+.platform-logo-svg{width:35px;height:35px;fill:currentColor;}
+.platform-name{font-weight:700;font-size:1.2rem;}
 .platform-desc{color:var(--muted);font-size:.85rem;line-height:1.5;}
-.platform-packages{display:flex;flex-direction:column;gap:.5rem;margin-top:.5rem;}
+.platform-packages{display:flex;flex-direction:column;gap:.5rem;}
 .pkg{
   display:flex;justify-content:space-between;align-items:center;
-  padding:.5rem .8rem;background:var(--dark3);border-radius:8px;
+  padding:.6rem .8rem;background:var(--dark3);border-radius:8px;
 }
-.pkg-label{font-size:.82rem;color:var(--muted);}
-.pkg-price{font-family:'Space Mono',monospace;color:var(--gold);font-size:.9rem;font-weight:700;}
+.pkg-label{font-size:.85rem;color:var(--muted);}
+.pkg-price{font-family:'Space Mono',monospace;color:var(--gold);font-size:.95rem;font-weight:700;}
 .pkg-buy{
-  padding:.3rem .8rem;background:var(--accent);color:#fff;
+  padding:.4rem .8rem;background:var(--accent);color:#fff;
   border:none;border-radius:6px;cursor:pointer;font-size:.78rem;font-weight:600;
   transition:background .2s;
 }
@@ -265,13 +256,9 @@ section{padding:5rem 2rem;}
   transition:transform .3s,box-shadow .3s;
 }
 .course-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.4);}
-.course-img{
-  height:160px;display:flex;align-items:center;justify-content:center;
-  font-size:3rem;position:relative;
+.course-img-h{
+  height:190px;width:100%;object-fit:cover;
 }
-.course-img.art{background:linear-gradient(135deg,#2D1B69,#11998e);}
-.course-img.beauty{background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);}
-.course-img.tech{background:linear-gradient(135deg,#0F2027,#203A43,#2C5364);}
 .course-body{padding:1.4rem;}
 .course-tag-sm{
   display:inline-block;padding:.2rem .7rem;
@@ -281,13 +268,13 @@ section{padding:5rem 2rem;}
 .tag-art{background:rgba(62,207,207,.15);color:var(--accent2);}
 .tag-beauty{background:rgba(253,29,29,.1);color:#fd6b6b;}
 .tag-tech{background:rgba(123,94,167,.15);color:#B09FD0;}
-.course-title{font-weight:700;font-size:1.05rem;margin-bottom:.5rem;}
+.course-title{font-weight:700;font-size:1.1rem;margin-bottom:.5rem;}
 .course-desc{color:var(--muted);font-size:.85rem;line-height:1.6;margin-bottom:1rem;}
 .course-footer{
   display:flex;justify-content:space-between;align-items:center;
   padding-top:1rem;border-top:1px solid var(--border);
 }
-.course-price{font-family:'Space Mono',monospace;color:var(--gold);font-weight:700;}
+.course-price{font-family:'Space Mono',monospace;color:var(--gold);font-weight:700;font-size:1.1rem;}
 .enroll-btn{
   padding:.5rem 1.2rem;background:linear-gradient(135deg,var(--accent),#5a3a8a);
   color:#fff;border:none;border-radius:8px;cursor:pointer;
@@ -306,223 +293,105 @@ section{padding:5rem 2rem;}
   border-radius:20px;padding:2.5rem 2rem;text-align:center;
   position:relative;transition:transform .3s,box-shadow .3s;
 }
-.plan-card.featured{
-  border-color:var(--gold);
-  box-shadow:0 0 40px rgba(201,168,76,.15);
-}
+.plan-card.featured{border-color:var(--gold);box-shadow:0 0 40px rgba(201,168,76,.15);}
 .plan-card:hover{transform:translateY(-6px);}
 .plan-badge{
   position:absolute;top:-1px;left:50%;transform:translateX(-50%);
   background:linear-gradient(135deg,var(--gold),#A87830);
   color:#0A0A0F;padding:.3rem 1.5rem;border-radius:0 0 12px 12px;
-  font-size:.8rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;
-  white-space:nowrap;
+  font-size:.8rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;white-space:nowrap;
 }
 .plan-name{font-family:'Playfair Display',serif;font-size:1.8rem;margin-bottom:.5rem;}
-.plan-price{
-  font-family:'Space Mono',monospace;
-  font-size:2.8rem;color:var(--gold);font-weight:700;
-  margin:1rem 0;
-}
+.plan-price{font-family:'Space Mono',monospace;font-size:2.8rem;color:var(--gold);font-weight:700;margin:1rem 0;}
 .plan-price small{font-size:1rem;color:var(--muted);}
 .plan-features{list-style:none;text-align:left;margin-bottom:1.5rem;}
-.plan-features li{
-  padding:.5rem 0;border-bottom:1px solid var(--border);
-  font-size:.9rem;display:flex;gap:.7rem;align-items:center;color:var(--muted);
-}
-.plan-features li::before{content:'✓';color:var(--gold);font-weight:700;flex-shrink:0;}
-.plan-features li.no::before{content:'✗';color:#666;}
-.plan-features li.no{color:#555;}
-.choose-plan{
-  width:100%;padding:1rem;border-radius:12px;border:none;
-  font-weight:700;font-size:1rem;cursor:pointer;transition:all .3s;
-}
-.plan-card.featured .choose-plan{
-  background:linear-gradient(135deg,var(--gold),#A87830);color:#0A0A0F;
-}
-.plan-card:not(.featured) .choose-plan{
-  background:var(--dark3);color:var(--text);border:2px solid var(--border);
-}
-.plan-card:not(.featured) .choose-plan:hover{border-color:var(--gold);color:var(--gold);}
+.plan-features li{padding:.5rem 0;border-bottom:1px solid var(--border);font-size:.9rem;display:flex;gap:.7rem;align-items:center;color:var(--muted);}
+.plan-features li::before{content:'✓';color:var(--gold);font-weight:700;}
+.choose-plan{width:100%;padding:1rem;border-radius:12px;border:none;font-weight:700;font-size:1rem;cursor:pointer;transition:all .3s;}
+.plan-card.featured .choose-plan{background:linear-gradient(135deg,var(--gold),#A87830);color:#0A0A0F;}
+.plan-card:not(.featured) .choose-plan{background:var(--dark3);color:var(--text);border:2px solid var(--border);}
 .builder-cta{text-align:center;margin-top:2rem;}
 .carrd-link{
-  display:inline-flex;align-items:center;gap:.8rem;
-  padding:1.2rem 2.5rem;
-  background:linear-gradient(135deg,var(--accent2),#2A9A9A);
-  color:#0A0A0F;font-weight:700;font-size:1.1rem;
-  border-radius:50px;text-decoration:none;
-  transition:all .3s;box-shadow:0 6px 25px rgba(62,207,207,.25);
+  display:inline-flex;align-items:center;gap:.8rem;padding:1.2rem 2.5rem;
+  background:linear-gradient(135deg,var(--accent2),#2A9A9A);color:#0A0A0F;font-weight:700;font-size:1.1rem;
+  border-radius:50px;text-decoration:none;transition:all .3s;box-shadow:0 6px 25px rgba(62,207,207,.25);
 }
-.carrd-link:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(62,207,207,.35);}
 .carrd-note{color:var(--muted);font-size:.9rem;margin-top:1rem;}
 
 /* ===== SUPPORT ===== */
 #support{background:var(--dark);}
-.support-layout{
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:3rem;max-width:1100px;margin:0 auto;
-  align-items:start;
-}
-.support-left{}
-.support-right{}
+.support-layout{display:grid;grid-template-columns:1fr 1fr;gap:3rem;max-width:1100px;margin:0 auto;align-items:start;}
 .contact-cards{display:flex;flex-direction:column;gap:1rem;margin-bottom:2rem;}
 .contact-card{
-  background:var(--card);border:1px solid var(--border);
-  border-radius:var(--radius);padding:1.4rem;
-  display:flex;align-items:center;gap:1rem;
-  text-decoration:none;color:var(--text);
-  transition:all .3s;
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.4rem;
+  display:flex;align-items:center;gap:1rem;text-decoration:none;color:var(--text);transition:all .3s;
 }
 .contact-card:hover{border-color:var(--gold);transform:translateX(4px);}
 .contact-icon{font-size:1.8rem;}
 .contact-info h4{font-weight:700;margin-bottom:.2rem;}
 .contact-info p{color:var(--muted);font-size:.85rem;}
-.whatsapp-ceo{border-color:rgba(37,211,102,.3);}
-.whatsapp-ceo:hover{border-color:#25d366;}
-.whatsapp-staff{border-color:rgba(62,207,207,.3);}
-.whatsapp-staff:hover{border-color:var(--accent2);}
 
-/* SUPPORT FORM */
-.support-form{
-  background:var(--card);border:1px solid var(--border);
-  border-radius:var(--radius);padding:2rem;
-}
-.support-form h3{
-  font-family:'Playfair Display',serif;
-  font-size:1.5rem;margin-bottom:1.5rem;
-}
+/* SURVEY FORM */
+.support-form{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;}
+.support-form h3{font-family:'Playfair Display',serif;font-size:1.5rem;margin-bottom:1.5rem;}
 .survey-step{display:none;}
 .survey-step.active{display:block;}
 .survey-question{font-weight:600;margin-bottom:1rem;line-height:1.5;}
 .survey-options{display:flex;flex-direction:column;gap:.6rem;margin-bottom:1.5rem;}
 .survey-opt{
-  padding:.8rem 1.2rem;border:1px solid var(--border);
-  background:var(--dark3);border-radius:10px;cursor:pointer;
-  font-size:.9rem;transition:all .2s;text-align:left;color:var(--text);
+  padding:.8rem 1.2rem;border:1px solid var(--border);background:var(--dark3);
+  border-radius:10px;cursor:pointer;font-size:.9rem;transition:all .2s;text-align:left;color:var(--text);
 }
 .survey-opt:hover,.survey-opt.selected{border-color:var(--gold);background:rgba(201,168,76,.08);color:var(--gold);}
 .form-group{margin-bottom:1rem;}
 .form-group label{display:block;font-size:.85rem;color:var(--muted);margin-bottom:.4rem;}
-.form-group input,.form-group textarea,.form-group select{
-  width:100%;padding:.8rem 1rem;
-  background:var(--dark3);border:1px solid var(--border);
-  color:var(--text);border-radius:10px;font-family:'DM Sans',sans-serif;
-  font-size:.9rem;transition:border-color .2s;outline:none;
+.form-group input,.form-group textarea{
+  width:100%;padding:.8rem 1rem;background:var(--dark3);border:1px solid var(--border);
+  color:var(--text);border-radius:10px;font-family:'DM Sans',sans-serif;font-size:.9rem;outline:none;
 }
-.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--gold);}
-.form-group textarea{resize:vertical;min-height:100px;}
 .submit-btn{
   width:100%;padding:1rem;background:linear-gradient(135deg,var(--gold),#A87830);
-  color:#0A0A0F;font-weight:700;font-size:1rem;border:none;
-  border-radius:10px;cursor:pointer;transition:all .3s;
+  color:#0A0A0F;font-weight:700;font-size:1rem;border:none;border-radius:10px;cursor:pointer;
 }
-.submit-btn:hover{opacity:.9;transform:translateY(-1px);}
-.progress-bar{
-  display:flex;gap:.4rem;margin-bottom:1.5rem;
-}
-.progress-step{
-  flex:1;height:4px;border-radius:4px;background:var(--border);transition:.3s;
-}
+.progress-bar{display:flex;gap:.4rem;margin-bottom:1.5rem;}
+.progress-step{flex:1;height:4px;border-radius:4px;background:var(--border);}
 .progress-step.done{background:var(--gold);}
-.success-msg{
-  text-align:center;padding:2rem;display:none;
-}
+.success-msg{text-align:center;padding:2rem;display:none;}
 .success-msg.show{display:block;}
-.success-icon{font-size:3rem;margin-bottom:1rem;}
-.success-msg h4{font-family:'Playfair Display',serif;font-size:1.5rem;margin-bottom:.5rem;}
-.success-msg p{color:var(--muted);}
-.notif-banner{
-  background:rgba(201,168,76,.1);border:1px solid var(--gold);
-  border-radius:10px;padding:.8rem 1.2rem;font-size:.85rem;
-  color:var(--gold);margin-top:1rem;display:none;
-}
-.notif-banner.show{display:block;}
 
-/* ===== FOOTER ===== */
-footer{
-  background:var(--dark2);border-top:1px solid var(--border);
-  padding:3rem 2rem;text-align:center;
-}
-.footer-logo{
-  font-family:'Playfair Display',serif;font-size:2rem;
-  background:linear-gradient(135deg,var(--gold),var(--gold-light));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  margin-bottom:1rem;
-}
-.footer-links{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.5rem;}
-.footer-links a{color:var(--muted);text-decoration:none;font-size:.9rem;transition:color .2s;cursor:pointer;}
-.footer-links a:hover{color:var(--gold);}
-.footer-copy{color:var(--muted);font-size:.82rem;}
-
-/* ===== MODAL CART ===== */
+/* ===== MODALS & PAIEMENT NATCASH ===== */
 .modal-overlay{
-  position:fixed;inset:0;background:rgba(0,0,0,.7);
+  position:fixed;inset:0;background:rgba(0,0,0,.85);
   z-index:5000;display:none;align-items:center;justify-content:center;
   backdrop-filter:blur(8px);
 }
 .modal-overlay.show{display:flex;}
 .modal-box{
   background:var(--card);border:1px solid var(--border);
-  border-radius:20px;padding:2.5rem;max-width:500px;width:90%;
-  position:relative;animation:scaleIn .3s ease;
+  border-radius:20px;padding:2.2rem;max-width:480px;width:95%;
+  position:relative;
 }
 .modal-close{
   position:absolute;top:1rem;right:1rem;
   background:var(--dark3);border:none;color:var(--muted);
   width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:1.2rem;
-  transition:all .2s;
 }
-.modal-close:hover{color:var(--text);background:var(--border);}
-.modal-title{font-family:'Playfair Display',serif;font-size:1.5rem;margin-bottom:1.5rem;}
-.modal-form .form-group{margin-bottom:1rem;}
-.modal-form label{display:block;font-size:.85rem;color:var(--muted);margin-bottom:.3rem;}
-.modal-form input{
-  width:100%;padding:.8rem 1rem;background:var(--dark3);
-  border:1px solid var(--border);color:var(--text);
-  border-radius:10px;font-size:.9rem;outline:none;transition:.2s;
-}
-.modal-form input:focus{border-color:var(--gold);}
-.modal-submit{
-  width:100%;padding:1rem;margin-top:.5rem;
-  background:linear-gradient(135deg,var(--gold),#A87830);
-  color:#0A0A0F;border:none;border-radius:10px;
-  font-weight:700;font-size:1rem;cursor:pointer;transition:.3s;
-}
-.modal-submit:hover{opacity:.9;}
+.modal-title{font-family:'Playfair Display',serif;font-size:1.6rem;margin-bottom:1.2rem;text-align:center;}
 
-/* ===== SHOP PANEL (whatsapp links) ===== */
-.wha-grid{
-  display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
-  gap:1.2rem;max-width:1100px;margin:0 auto;
+#natcash-screen{display:none;text-align:center;}
+.natcash-logo-box{
+  background:#ff3b30;color:#fff;font-family:'Arial Black',sans-serif;
+  font-weight:900;font-size:1.6rem;padding:.5rem 1.5rem;
+  display:inline-block;border-radius:8px;margin-bottom:1.5rem;
 }
-.wha-card{
-  background:var(--card);border:1px solid var(--border);
-  border-radius:var(--radius);padding:1.5rem;
-  display:flex;flex-direction:column;gap:.6rem;
-  transition:transform .3s;
+.natcash-step-box{
+  background:var(--dark3);border:1px dashed var(--gold);
+  border-radius:10px;padding:1.2rem;margin:1rem 0;text-align:left;
 }
-.wha-card:hover{transform:translateY(-4px);}
-.wha-emoji{font-size:2rem;}
-.wha-title{font-weight:700;}
-.wha-desc{color:var(--muted);font-size:.85rem;line-height:1.5;}
-.wha-price{
-  font-family:'Space Mono',monospace;color:var(--gold);
-  font-size:1.1rem;font-weight:700;margin-top:.3rem;
-}
-.wha-buy{
-  padding:.6rem 1rem;background:linear-gradient(135deg,#25d366,#128c7e);
-  color:#fff;border:none;border-radius:8px;cursor:pointer;
-  font-weight:700;font-size:.85rem;display:flex;align-items:center;gap:.5rem;
-  width:fit-content;transition:all .2s;
-}
-.wha-buy:hover{opacity:.85;}
+.natcash-step-box p{font-size:0.95rem;margin-bottom:0.6rem;line-height:1.5;}
+.natcash-num{font-family:'Space Mono',monospace;color:var(--gold);font-weight:700;font-size:1.2rem;background:var(--dark);padding:0.2rem 0.5rem;border-radius:4px;}
 
-/* ===== ANIMATIONS ===== */
-@keyframes fadeIn{from{opacity:0}to{opacity:1}}
-@keyframes fadeInUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-@keyframes scaleIn{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
-
-/* ===== RESPONSIVE ===== */
+/* RESPONSIVE */
 @media(max-width:900px){
   .support-layout{grid-template-columns:1fr;}
   .nav-links{display:none;}
@@ -531,19 +400,13 @@ footer{
 @media(max-width:600px){
   nav{padding:.8rem 1.2rem;}
   section{padding:3.5rem 1.2rem;}
-  .plans-wrapper{grid-template-columns:1fr;}
 }
-/* Mobile nav open */
 .mobile-nav{
   display:none;position:fixed;inset:0;top:64px;z-index:900;
   background:var(--dark);padding:2rem;flex-direction:column;gap:1.5rem;
 }
 .mobile-nav.open{display:flex;}
-.mobile-nav a{
-  font-size:1.2rem;color:var(--text);text-decoration:none;
-  border-bottom:1px solid var(--border);padding-bottom:1rem;
-  cursor:pointer;
-}
+.mobile-nav a{font-size:1.2rem;color:var(--text);text-decoration:none;border-bottom:1px solid var(--border);padding-bottom:1rem;}
 </style>
 </head>
 <body>
@@ -551,8 +414,8 @@ footer{
 <!-- ===== LANGUAGE SELECTION ===== -->
 <div id="lang-screen">
   <div class="hero-bg" style="position:absolute;inset:0;pointer-events:none;"></div>
-  <h1>NovaMart</h1>
-  <p data-ht="Chwazi lang ou" data-fr="Choisissez votre langue" data-en="Choose your language" id="lang-prompt">Chwazi lang ou</p>
+  <h1>G-legacy</h1>
+  <p id="lang-prompt">Chwazi lang ou / Choisissez votre langue</p>
   <div class="lang-grid">
     <button class="lang-btn" onclick="setLang('ht')"><span class="lang-flag">🇭🇹</span>Kreyòl</button>
     <button class="lang-btn" onclick="setLang('fr')"><span class="lang-flag">🇫🇷</span>Français</button>
@@ -565,7 +428,7 @@ footer{
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo" onclick="scrollTo('home')">NovaMart</div>
+  <div class="nav-logo" onclick="scrollTo('home')">G-legacy</div>
   <div class="nav-links">
     <a onclick="scrollTo('shop')" data-i18n="nav_shop">Shop</a>
     <a onclick="scrollTo('courses')" data-i18n="nav_courses">Kours</a>
@@ -615,25 +478,31 @@ footer{
   <!-- WhatsApp Links -->
   <div id="tab-whatsapp" class="wha-grid">
     <div class="wha-card">
-      <div class="wha-emoji">🔗</div>
-      <div class="wha-title" data-i18n="wha1_title">Chèn Basic</div>
-      <div class="wha-desc" data-i18n="wha1_desc">Lyen WhatsApp pèsonèl pou biznis ou. Kliyan yo ka kontakte ou dirèkteman.</div>
-      <div class="wha-price">$5</div>
-      <button class="wha-buy" onclick="openModal('Chèn WhatsApp Basic','$5')">💬 <span data-i18n="buy_now">Achte Kounye a</span></button>
+      <img src="https://images.unsplash.com/photo-1614741118887-7a4ee193a5fa?q=80&w=600&auto=format&fit=cover" alt="Chèn Basic" class="wha-img">
+      <div class="wha-content">
+        <div class="wha-title" data-i18n="wha1_title">Chèn Basic</div>
+        <div class="wha-desc" data-i18n="wha1_desc">Lyen WhatsApp pèsonèl pou biznis ou. Kliyan yo ka kontakte ou dirèkteman.</div>
+        <div class="wha-price">$5</div>
+        <button class="wha-buy" onclick="openModal('Chèn WhatsApp Basic','$5')">💬 <span data-i18n="buy_now">Achte Kounye a</span></button>
+      </div>
     </div>
     <div class="wha-card">
-      <div class="wha-emoji">⚡</div>
-      <div class="wha-title" data-i18n="wha2_title">Chèn Pro</div>
-      <div class="wha-desc" data-i18n="wha2_desc">Chèn WhatsApp ak bouton pèsonalize, mesaj otomatik ak plis ankò.</div>
-      <div class="wha-price">$15</div>
-      <button class="wha-buy" onclick="openModal('Chèn WhatsApp Pro','$15')">💬 <span data-i18n="buy_now">Achte Kounye a</span></button>
+      <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=600&auto=format&fit=cover" alt="Chèn Pro" class="wha-img">
+      <div class="wha-content">
+        <div class="wha-title" data-i18n="wha2_title">Chèn Pro</div>
+        <div class="wha-desc" data-i18n="wha2_desc">Chèn WhatsApp ak bouton pèsonalize, mesaj otomatik ak plis ankò.</div>
+        <div class="wha-price">$15</div>
+        <button class="wha-buy" onclick="openModal('Chèn WhatsApp Pro','$15')">💬 <span data-i18n="buy_now">Achte Kounye a</span></button>
+      </div>
     </div>
     <div class="wha-card">
-      <div class="wha-emoji">👑</div>
-      <div class="wha-title" data-i18n="wha3_title">Chèn Business Pack</div>
-      <div class="wha-desc" data-i18n="wha3_desc">Kit konplè: 3 chèn WhatsApp + katalòg pwodwi + sistèm notifikasyon.</div>
-      <div class="wha-price">$35</div>
-      <button class="wha-buy" onclick="openModal('WhatsApp Business Pack','$35')">💬 <span data-i18n="buy_now">Achte Kounye a</span></button>
+      <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=cover" alt="Business Pack" class="wha-img">
+      <div class="wha-content">
+        <div class="wha-title" data-i18n="wha3_title">Chèn Business Pack</div>
+        <div class="wha-desc" data-i18n="wha3_desc">Kit konplè: 3 chèn WhatsApp + katalòg pwodwi + sistèm notifikasyon.</div>
+        <div class="wha-price">$35</div>
+        <button class="wha-buy" onclick="openModal('WhatsApp Business Pack','$35')">💬 <span data-i18n="buy_now">Achte Kounye a</span></button>
+      </div>
     </div>
   </div>
 
@@ -642,8 +511,10 @@ footer{
     <div class="platform-grid">
       <!-- TikTok -->
       <div class="platform-card">
-        <div class="platform-icon">🎵</div>
-        <div class="platform-name">TikTok</div>
+        <div class="platform-header">
+          <svg class="platform-logo-svg" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.05 1.62 4.2 1.15 1.27 2.8 2.05 4.45 2.24v3.91c-1.25-.16-2.5-.63-3.51-1.42-.87-.7-1.55-1.63-1.95-2.7-.03 2.14-.02 4.28-.03 6.42-.01 1.76-.36 3.53-1.15 5.12-.95 1.83-2.6 3.32-4.57 3.97-2 .62-4.21.52-6.13-.3-1.9-0.81-3.48-2.38-4.24-4.31-.83-2.03-.76-4.38.25-6.32.96-1.84 2.64-3.3 4.63-3.89.86-.25 1.76-.35 2.65-.33V9.05c-1.31-.05-2.67.33-3.69 1.18-1.2 1.02-1.69 2.74-1.2 4.27.42 1.25 1.44 2.28 2.72 2.67 1.34.39 2.86-.03 3.77-1.11.58-.72.88-1.64.87-2.57l.03-13.47z"/></svg>
+          <div class="platform-name">TikTok</div>
+        </div>
         <div class="platform-desc" data-i18n="tiktok_desc">Ogmante swivè, vi ak engajman TikTok ou.</div>
         <div class="platform-packages">
           <div class="pkg"><span class="pkg-label">1K Followers</span><span class="pkg-price">$10</span><button class="pkg-buy" onclick="openModal('TikTok 1K Followers','$10')">Achte</button></div>
@@ -653,8 +524,10 @@ footer{
       </div>
       <!-- Facebook -->
       <div class="platform-card">
-        <div class="platform-icon">📘</div>
-        <div class="platform-name">Facebook</div>
+        <div class="platform-header">
+          <svg class="platform-logo-svg" viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.8z"/></svg>
+          <div class="platform-name">Facebook</div>
+        </div>
         <div class="platform-desc" data-i18n="fb_desc">Paj ou va touche plis moun ak vi reyèl.</div>
         <div class="platform-packages">
           <div class="pkg"><span class="pkg-label">1K Likes Page</span><span class="pkg-price">$12</span><button class="pkg-buy" onclick="openModal('Facebook 1K Likes','$12')">Achte</button></div>
@@ -664,8 +537,10 @@ footer{
       </div>
       <!-- YouTube -->
       <div class="platform-card">
-        <div class="platform-icon">▶️</div>
-        <div class="platform-name">YouTube</div>
+        <div class="platform-header">
+          <svg class="platform-logo-svg" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          <div class="platform-name">YouTube</div>
+        </div>
         <div class="platform-desc" data-i18n="yt_desc">Grandi kanal ou ak abonman ak vi otantik.</div>
         <div class="platform-packages">
           <div class="pkg"><span class="pkg-label">500 Subscribers</span><span class="pkg-price">$20</span><button class="pkg-buy" onclick="openModal('YouTube 500 Subs','$20')">Achte</button></div>
@@ -675,8 +550,10 @@ footer{
       </div>
       <!-- Instagram -->
       <div class="platform-card">
-        <div class="platform-icon">📸</div>
-        <div class="platform-name">Instagram</div>
+        <div class="platform-header">
+          <svg class="platform-logo-svg" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+          <div class="platform-name">Instagram</div>
+        </div>
         <div class="platform-desc" data-i18n="ig_desc">Plis swivè, likes ak vi pou Instagram ou.</div>
         <div class="platform-packages">
           <div class="pkg"><span class="pkg-label">1K Followers</span><span class="pkg-price">$12</span><button class="pkg-buy" onclick="openModal('Instagram 1K Followers','$12')">Achte</button></div>
@@ -696,8 +573,9 @@ footer{
     <p class="section-sub" data-i18n="courses_sub">Kous peyan ekspè ki pral ede ou kreye pwodwi ak rantre lajan.</p>
   </div>
   <div class="courses-grid">
+    <!-- Kous 1 -->
     <div class="course-card">
-      <div class="course-img art"><span>🎨</span></div>
+      <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600&auto=format&fit=cover" alt="Tikomik" class="course-img-h">
       <div class="course-body">
         <span class="course-tag-sm tag-art" data-i18n="tag_creative">Kreyatif</span>
         <div class="course-title" data-i18n="c1_title">Kreye Tikomik</div>
@@ -708,8 +586,9 @@ footer{
         </div>
       </div>
     </div>
+    <!-- Kous 2 -->
     <div class="course-card">
-      <div class="course-img tech"><span>📱</span></div>
+      <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=600&auto=format&fit=cover" alt="App" class="course-img-h">
       <div class="course-body">
         <span class="course-tag-sm tag-tech" data-i18n="tag_tech">Teknoloji</span>
         <div class="course-title" data-i18n="c2_title">Kreye Aplikasyon</div>
@@ -720,8 +599,9 @@ footer{
         </div>
       </div>
     </div>
+    <!-- Kous 3 -->
     <div class="course-card">
-      <div class="course-img beauty"><span>🧼</span></div>
+      <img src="https://images.unsplash.com/photo-1607006342456-ba275550600a?q=80&w=600&auto=format&fit=cover" alt="Savon" class="course-img-h">
       <div class="course-body">
         <span class="course-tag-sm tag-beauty" data-i18n="tag_beauty">Bote Natirèl</span>
         <div class="course-title" data-i18n="c3_title">Fè Savon Natirèl</div>
@@ -732,8 +612,9 @@ footer{
         </div>
       </div>
     </div>
+    <!-- Kous 4 -->
     <div class="course-card">
-      <div class="course-img beauty"><span>💆</span></div>
+      <img src="https://images.unsplash.com/photo-1608248597481-496100c8c836?q=80&w=600&auto=format&fit=cover" alt="Lwil Cheve" class="course-img-h">
       <div class="course-body">
         <span class="course-tag-sm tag-beauty" data-i18n="tag_beauty">Bote Natirèl</span>
         <div class="course-title" data-i18n="c4_title">Lwil Cheve Natirèl</div>
@@ -744,8 +625,9 @@ footer{
         </div>
       </div>
     </div>
+    <!-- Kous 5 -->
     <div class="course-card">
-      <div class="course-img beauty"><span>✨</span></div>
+      <img src="https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?q=80&w=600&auto=format&fit=cover" alt="Krèm Po" class="course-img-h">
       <div class="course-body">
         <span class="course-tag-sm tag-beauty" data-i18n="tag_beauty">Bote Natirèl</span>
         <div class="course-title" data-i18n="c5_title">Krèm Po</div>
@@ -756,8 +638,9 @@ footer{
         </div>
       </div>
     </div>
+    <!-- Kous 6 -->
     <div class="course-card">
-      <div class="course-img art"><span>🌸</span></div>
+      <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=600&auto=format&fit=cover" alt="Pafen" class="course-img-h">
       <div class="course-body">
         <span class="course-tag-sm tag-art" data-i18n="tag_creative">Kreyatif</span>
         <div class="course-title" data-i18n="c6_title">Kreye Pafen</div>
@@ -779,7 +662,6 @@ footer{
     <p class="section-sub" data-i18n="builder_sub">Chwazi yon plan epi kòmanse kreye sit entènèt ou an kèk minit ak Carrd.</p>
   </div>
   <div class="plans-wrapper">
-    <!-- Limited Plan -->
     <div class="plan-card">
       <div class="plan-name" data-i18n="plan_lite_name">Plan Limite</div>
       <div class="plan-price">$20<small>/an</small></div>
@@ -788,12 +670,9 @@ footer{
         <li data-i18n="pl2">2 sit bonis gratis</li>
         <li data-i18n="pl3">Sipò teknik</li>
         <li data-i18n="pl4">Modèl pèsonalize</li>
-        <li class="no" data-i18n="pl5">Sit ilimite</li>
-        <li class="no" data-i18n="pl6">Kreye pou tout tan</li>
       </ul>
       <button class="choose-plan" onclick="openModal('Plan Limite – Kreyasyon Site','$20')" data-i18n="choose_plan">Chwazi Plan sa</button>
     </div>
-    <!-- Pro Plan -->
     <div class="plan-card featured">
       <div class="plan-badge" data-i18n="recommended">⭐ Rekòmande</div>
       <div class="plan-name" data-i18n="plan_pro_name">Plan Pro</div>
@@ -802,17 +681,13 @@ footer{
         <li data-i18n="pp1">Sit ilimite</li>
         <li data-i18n="pp2">Kreye pou tout tan</li>
         <li data-i18n="pp3">Sipò prioritè 24/7</li>
-        <li data-i18n="pp4">Tout modèl disponib</li>
         <li data-i18n="pp5">Domèn pèsonèl</li>
-        <li data-i18n="pp6">Estatistik avanse</li>
       </ul>
       <button class="choose-plan" onclick="openModal('Plan Pro – Kreyasyon Site','$50')" data-i18n="choose_plan">Chwazi Plan sa</button>
     </div>
   </div>
   <div class="builder-cta">
-    <a href="https://carrd.co" target="_blank" class="carrd-link">
-      🚀 <span data-i18n="go_carrd">Kòmanse Kreye sou Carrd</span>
-    </a>
+    <a href="https://carrd.co" target="_blank" class="carrd-link">🚀 <span data-i18n="go_carrd">Kòmanse Kreye sou Carrd</span></a>
     <p class="carrd-note" data-i18n="carrd_note">Apre ou peye, n'ap voye lyen ak zouti yo ban ou dirèkteman.</p>
   </div>
 </section>
@@ -825,37 +700,24 @@ footer{
     <p class="section-sub" data-i18n="support_sub">Ekri nou, kontakte PDG la, oswa pale ak ekip la dirèkteman.</p>
   </div>
   <div class="support-layout">
-    <!-- Left: contacts -->
     <div class="support-left">
       <div class="contact-cards">
-        <a href="https://wa.me/19043181164" target="_blank" class="contact-card whatsapp-ceo">
+        <a href="https://wa.me/19043181164" target="_blank" class="contact-card">
           <span class="contact-icon">👑</span>
           <div class="contact-info">
             <h4 data-i18n="ceo_title">Kontakte PDG a</h4>
             <p>+1 (904) 318-1164 · WhatsApp</p>
           </div>
-          <span style="margin-left:auto;color:#25d366;font-size:1.3rem;">↗</span>
         </a>
-        <a href="https://wa.me/50934830635" target="_blank" class="contact-card whatsapp-staff">
+        <a href="https://wa.me/50934830635" target="_blank" class="contact-card">
           <span class="contact-icon">🎧</span>
           <div class="contact-info">
             <h4 data-i18n="staff_title">Pale ak Staff la</h4>
             <p>+509 34 83 0635 · WhatsApp</p>
           </div>
-          <span style="margin-left:auto;color:var(--accent2);font-size:1.3rem;">↗</span>
         </a>
       </div>
-      <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;">
-        <h4 style="margin-bottom:.8rem;font-family:'Playfair Display',serif;" data-i18n="hours_title">Orè Sipò</h4>
-        <p style="color:var(--muted);font-size:.9rem;line-height:1.8;" data-i18n="hours_text">
-          Lendi – Vandredi: 8am – 8pm<br>
-          Samdi: 9am – 5pm<br>
-          Dimanch: Fermé
-        </p>
-      </div>
     </div>
-
-    <!-- Right: support form -->
     <div class="support-right">
       <div class="support-form">
         <h3 data-i18n="form_title">✉️ Ekri Yon Mesaj</h3>
@@ -864,238 +726,120 @@ footer{
           <div class="progress-step" id="ps2"></div>
           <div class="progress-step" id="ps3"></div>
         </div>
-
-        <!-- Step 1: Category -->
+        
+        <!-- STEP 1 -->
         <div class="survey-step active" id="step1">
           <div class="survey-question" data-i18n="s1_q">Ki sijè mesaj ou a?</div>
           <div class="survey-options">
-            <button class="survey-opt" onclick="selectOption(this,'shop')" data-i18n="s1_shop">🛍 Pwoblèm Shop / Kòmand</button>
-            <button class="survey-opt" onclick="selectOption(this,'course')" data-i18n="s1_course">🎓 Kous Anliy</button>
-            <button class="survey-opt" onclick="selectOption(this,'builder')" data-i18n="s1_builder">🌐 Kreyasyon Site Web</button>
-            <button class="survey-opt" onclick="selectOption(this,'other')" data-i18n="s1_other">💬 Lòt Sijè</button>
+            <button class="survey-opt" onclick="selectOption(this,'shop')">🛍 Pwoblèm Shop / Sèvis</button>
+            <button class="survey-opt" onclick="selectOption(this,'course')">🎓 Kous Anliy</button>
           </div>
-          <button class="submit-btn" onclick="nextStep(2)" data-i18n="btn_next">Kontinye →</button>
+          <button class="submit-btn" onclick="nextStep(2)">Kontinye →</button>
         </div>
-
-        <!-- Step 2: Problem details -->
+        
+        <!-- STEP 2 -->
         <div class="survey-step" id="step2">
-          <div class="survey-question" data-i18n="s2_q">Ki kalite pwoblèm ou genyen?</div>
+          <div class="survey-question">Ki kalite pwoblèm ou genyen?</div>
           <div class="survey-options">
-            <button class="survey-opt" onclick="selectOption(this,'paiement')" data-i18n="s2_pay">💳 Pwoblèm peman</button>
-            <button class="survey-opt" onclick="selectOption(this,'livraison')" data-i18n="s2_delivery">📦 Livrezon / Aksè</button>
-            <button class="survey-opt" onclick="selectOption(this,'info')" data-i18n="s2_info">ℹ️ Mande enfòmasyon</button>
-            <button class="survey-opt" onclick="selectOption(this,'bug')" data-i18n="s2_bug">🐛 Erè / Bug sou sit la</button>
+            <button class="survey-opt" onclick="selectOption(this,'paiement')">💳 Pwoblèm peman / Aktivasyon</button>
+            <button class="survey-opt" onclick="selectOption(this,'info')">ℹ️ Mwen bezwen Plis Enfòmasyon</button>
           </div>
-          <button class="submit-btn" onclick="nextStep(3)" data-i18n="btn_next">Kontinye →</button>
+          <button class="submit-btn" onclick="nextStep(3)">Kontinye →</button>
         </div>
-
-        <!-- Step 3: Message -->
+        
+        <!-- STEP 3 -->
         <div class="survey-step" id="step3">
-          <div class="survey-question" data-i18n="s3_q">Ekri mesaj ou a:</div>
-          <div class="form-group">
-            <label data-i18n="f_name">Non Ou</label>
-            <input type="text" id="f-name" placeholder="Jean Marie"/>
-          </div>
-          <div class="form-group">
-            <label data-i18n="f_email">Imel ou</label>
-            <input type="email" id="f-email" placeholder="exemple@mail.com"/>
-          </div>
-          <div class="form-group">
-            <label data-i18n="f_msg">Mesaj Ou</label>
-            <textarea id="f-msg" placeholder="Ekri pwoblèm ou a isit..."></textarea>
-          </div>
-          <button class="submit-btn" onclick="submitForm()" data-i18n="btn_send">📨 Voye Mesaj la</button>
+          <div class="form-group"><label>Non Ou</label><input type="text" id="f-name" placeholder="Eks: Jean Marie"/></div>
+          <div class="form-group"><label>Imel ou</label><input type="email" id="f-email" placeholder="Eks: jean@mail.com"/></div>
+          <div class="form-group"><label>Mesaj Ou</label><textarea id="f-msg" placeholder="Ekri mesaj ou la..."></textarea></div>
+          <button class="submit-btn" onclick="submitForm()">📨 Voye Mesaj la sou WhatsApp</button>
         </div>
-
-        <!-- Success -->
-        <div class="success-msg" id="successMsg">
-          <div class="success-icon">✅</div>
-          <h4 data-i18n="success_title">Mesaj Resevwa!</h4>
-          <p data-i18n="success_text">Mèsi. Ekip la va reponn ou nan mwens pase 24 èdtan. Ou pral resevwa yon notifikasyon.</p>
-          <div class="notif-banner show" id="notifBanner">
-            🔔 <span data-i18n="notif_text">Notifikasyon aktivite! Ou pral resevwa repons lan trè byento.</span>
-          </div>
-        </div>
+        <div class="success-msg" id="successMsg"><h4>✅ Mesaj Resevwa!</h4></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  <div class="footer-logo">NovaMart</div>
-  <div class="footer-links">
-    <a onclick="scrollTo('home')" data-i18n="nav_home">Akèy</a>
-    <a onclick="scrollTo('shop')" data-i18n="nav_shop">Shop</a>
-    <a onclick="scrollTo('courses')" data-i18n="nav_courses">Kours</a>
-    <a onclick="scrollTo('builder')" data-i18n="nav_builder">Kreyasyon Site</a>
-    <a onclick="scrollTo('support')" data-i18n="nav_support">Sipò</a>
-  </div>
-  <p class="footer-copy">© 2025 NovaMart. <span data-i18n="footer_rights">Tout dwa rezève.</span></p>
+  <div class="footer-logo">G-legacy</div>
+  <p class="footer-copy">©️ 2026 G-legacy. Tout dwa rezève.</p>
 </footer>
 
-</div><!-- end #main-site -->
+</div>
 
-<!-- PURCHASE MODAL -->
+<!-- ===== MODAL KÒMANDE AK NATCASH FIXED ===== -->
 <div class="modal-overlay" id="purchaseModal">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal()">✕</button>
     <div class="modal-title" id="modal-title">Kòmande</div>
-    <div class="modal-form">
+    
+    <!-- ETAP 1: FORMULAIRE -->
+    <div id="order-form-screen">
       <div class="form-group">
-        <label data-i18n="f_name">Non Ou</label>
+        <label>Non Ou</label>
         <input type="text" id="m-name" placeholder="Jean Marie"/>
       </div>
       <div class="form-group">
-        <label data-i18n="f_email">Imel ou</label>
+        <label>Imel ou</label>
         <input type="email" id="m-email" placeholder="exemple@mail.com"/>
       </div>
       <div class="form-group">
         <label>WhatsApp</label>
         <input type="text" id="m-phone" placeholder="+509 ..."/>
       </div>
-      <div id="modal-price-display" style="text-align:center;padding:1rem;background:rgba(201,168,76,.08);border-radius:10px;margin-bottom:.5rem;">
-        <span style="color:var(--muted);font-size:.9rem;" data-i18n="total">Total:</span>
+      <div style="text-align:center;padding:1rem;background:rgba(201,168,76,.08);border-radius:10px;margin-bottom:1rem;">
+        <span style="color:var(--muted);font-size:.9rem;">Total:</span>
         <span id="modal-price" style="font-family:'Space Mono';color:var(--gold);font-size:1.4rem;font-weight:700;margin-left:.5rem;"></span>
       </div>
-      <button class="modal-submit" onclick="submitOrder()">
-        💳 <span data-i18n="confirm_order">Konfime Kòmand la</span>
+      <button class="btn-primary" style="width:100%; border-radius:10px;" onclick="goToNatcash()">
+        Kontinye pou Peman Natcash ➔
       </button>
     </div>
+
+    <!-- ETAP 2: ENTÈFAS NATCASH -->
+    <div id="natcash-screen">
+      <div class="natcash-logo-box">Natcash</div>
+      <h3>Enstriksyon Peman</h3>
+      <div class="natcash-step-box">
+        <p>1. Voye kantite lajan an sou nimewo Natcash sa a:</p>
+        <p style="text-align:center; margin: 0.8rem 0;"><span class="natcash-num">43 59 53 35</span></p>
+        <p>2. Non sou kont lan: <b>Germain Tech / G-legacy</b></p>
+        <p>3. Lè ou fin fè transfè a, klike sou bouton anba a pou voye prèv la (Screenshot) sou WhatsApp pou aktivasyon rapid.</p>
+      </div>
+      <button class="wha-buy" onclick="completeOrderWithWhatsApp()">
+        ✅ Mwen fin peye, Voye prèv sou WhatsApp
+      </button>
+    </div>
+
   </div>
 </div>
 
 <script>
-// ==================== TRANSLATIONS ====================
+// TRANSLATIONS
 const T = {
   ht:{
-    nav_home:"Akèy",nav_shop:"Shop",nav_courses:"Kours",nav_builder:"Kreyasyon Site",nav_support:"Sipò & Kontak",
-    hero_tag:"✦ Platfòm Nimewo 1 an Ayiti",
-    hero_h1:'Kreye. <span>Vann. Grandi.</span>',
+    nav_shop:"Shop",nav_courses:"Kours",nav_builder:"Kreyasyon Site",nav_support:"Sipò",
+    hero_tag:"✦ Platfòm Nimewo 1 an Ayiti",hero_h1:'Kreye. <span>Vann. Grandi.</span>',
     hero_sub:"Shop, kours anliy, ak zouti kreyasyon — tout bagay nan yon sèl kote.",
     hero_cta1:"Eksplore Shop la",hero_cta2:"Wè Kours yo",
     shop_tag:"🛍 Shop",shop_title:"Pwodwi & Sèvis Nou",shop_sub:"Chèn WhatsApp pou biznis ou ak viziblite pou reyzo sosyal ou.",
-    tab_wha:"💬 Chèn WhatsApp",tab_vis:"📈 Viziblite Sosyal",
-    wha1_title:"Chèn Basic",wha1_desc:"Lyen WhatsApp pèsonèl pou biznis ou. Kliyan yo ka kontakte ou dirèkteman.",
-    wha2_title:"Chèn Pro",wha2_desc:"Chèn WhatsApp ak bouton pèsonalize, mesaj otomatik ak plis ankò.",
-    wha3_title:"Chèn Business Pack",wha3_desc:"Kit konplè: 3 chèn WhatsApp + katalòg pwodwi + sistèm notifikasyon.",
-    buy_now:"Achte Kounye a",
-    tiktok_desc:"Ogmante swivè, vi ak engajman TikTok ou.",
-    fb_desc:"Paj ou va touche plis moun ak vi reyèl.",
-    yt_desc:"Grandi kanal ou ak abonman ak vi otantik.",
-    ig_desc:"Plis swivè, likes ak vi pou Instagram ou.",
-    courses_tag:"🎓 Kours Anliy",courses_title:"Aprann. Kreye. Reyisi.",courses_sub:"Kous peyan ekspè ki pral ede ou kreye pwodwi ak rantre lajan.",
-    tag_creative:"Kreyatif",tag_tech:"Teknoloji",tag_beauty:"Bote Natirèl",
-    c1_title:"Kreye Tikomik",c1_desc:"Aprann kreye tikomik pwofesyonèl. Karaktè, istwa, koulè ak piblikasyon.",
-    c2_title:"Kreye Aplikasyon",c2_desc:"Kreye premye aplikasyon ou a. Depi zero jiska pubikasyon sou Play Store.",
-    c3_title:"Fè Savon Natirèl",c3_desc:"Teknik fè savon fèt lakay. Formil, pakaj ak kijan pou vann yo.",
-    c4_title:"Lwil Cheve Natirèl",c4_desc:"Kreye lwil cheve espesyal ak plant lokal. Swen cheve, vann & biznis.",
-    c5_title:"Krèm Po",c5_desc:"Fòmil krèm po natirèl. Ingredyan, melanj ak kijan yo travay sou po.",
-    c6_title:"Kreye Pafen",c6_desc:"Atizay fè pafen ak flakon. Melanj sant, tetrès ak komèsyalizasyon.",
-    enroll:"Enskri",
-    builder_tag:"🌐 Kreyasyon Site Web",builder_title:"Kreye Site Ou Jodi a",builder_sub:"Chwazi yon plan epi kòmanse kreye sit entènèt ou an kèk minit ak Carrd.",
-    plan_lite_name:"Plan Limite",plan_pro_name:"Plan Pro",recommended:"⭐ Rekòmande",
-    pl1:"Kreye jiska 9 sit",pl2:"2 sit bonis gratis",pl3:"Sipò teknik",pl4:"Modèl pèsonalize",pl5:"Sit ilimite",pl6:"Kreye pou tout tan",
-    pp1:"Sit ilimite",pp2:"Kreye pou tout tan",pp3:"Sipò prioritè 24/7",pp4:"Tout modèl disponib",pp5:"Domèn pèsonèl",pp6:"Estatistik avanse",
-    choose_plan:"Chwazi Plan sa",go_carrd:"Kòmanse Kreye sou Carrd",carrd_note:"Apre ou peye, n'ap voye lyen ak zouti yo ban ou dirèkteman.",
-    support_tag:"💬 Sipò & Kontak",support_title:"Nou La Pou Ou",support_sub:"Ekri nou, kontakte PDG la, oswa pale ak ekip la dirèkteman.",
-    ceo_title:"Kontakte PDG a",staff_title:"Pale ak Staff la",
-    hours_title:"Orè Sipò",hours_text:"Lendi – Vandredi: 8am – 8pm<br>Samdi: 9am – 5pm<br>Dimanch: Fèmé",
-    form_title:"✉️ Ekri Yon Mesaj",
-    s1_q:"Ki sijè mesaj ou a?",s1_shop:"🛍 Pwoblèm Shop / Kòmand",s1_course:"🎓 Kous Anliy",s1_builder:"🌐 Kreyasyon Site Web",s1_other:"💬 Lòt Sijè",
-    s2_q:"Ki kalite pwoblèm ou genyen?",s2_pay:"💳 Pwoblèm peman",s2_delivery:"📦 Livrezon / Aksè",s2_info:"ℹ️ Mande enfòmasyon",s2_bug:"🐛 Erè / Bug sou sit la",
-    s3_q:"Ekri mesaj ou a:",f_name:"Non Ou",f_email:"Imel ou",f_msg:"Mesaj Ou",
-    btn_next:"Kontinye →",btn_send:"📨 Voye Mesaj la",
-    success_title:"Mesaj Resevwa!",success_text:"Mèsi. Ekip la va reponn ou nan mwens pase 24 èdtan. Ou pral resevwa yon notifikasyon.",
-    notif_text:"Notifikasyon aktivite! Ou pral resevwa repons lan trè byento.",
-    total:"Total:",confirm_order:"Konfime Kòmand la",
-    footer_rights:"Tout dwa rezève.",lang_prompt:"Chwazi lang ou"
+    tab_wha:"💬 Chèn WhatsApp",tab_vis:"📈 Viziblite Sosyal",buy_now:"Achte Kounye a",enroll:"Enskri",choose_plan:"Chwazi Plan sa"
   },
   fr:{
-    nav_home:"Accueil",nav_shop:"Boutique",nav_courses:"Cours",nav_builder:"Création Site",nav_support:"Support & Contact",
-    hero_tag:"✦ Plateforme N°1 en Haïti",
-    hero_h1:'Créez. <span>Vendez. Grandissez.</span>',
+    nav_shop:"Boutique",nav_courses:"Cours",nav_builder:"Création Site",nav_support:"Support",
+    hero_tag:"✦ Plateforme N°1 en Haïti",hero_h1:'Créez. <span>Vendez. Grandissez.</span>',
     hero_sub:"Boutique, cours en ligne et outils de création — tout en un seul endroit.",
     hero_cta1:"Explorer la Boutique",hero_cta2:"Voir les Cours",
-    shop_tag:"🛍 Boutique",shop_title:"Nos Produits & Services",shop_sub:"Liens WhatsApp pour votre business et visibilité pour vos réseaux sociaux.",
-    tab_wha:"💬 Liens WhatsApp",tab_vis:"📈 Visibilité Sociale",
-    wha1_title:"Lien Basic",wha1_desc:"Lien WhatsApp personnel pour votre business. Les clients peuvent vous contacter directement.",
-    wha2_title:"Lien Pro",wha2_desc:"Lien WhatsApp avec boutons personnalisés, messages automatiques et plus.",
-    wha3_title:"Business Pack",wha3_desc:"Kit complet: 3 liens WhatsApp + catalogue produits + système de notification.",
-    buy_now:"Acheter Maintenant",
-    tiktok_desc:"Augmentez vos abonnés, vues et engagement TikTok.",
-    fb_desc:"Votre page touchera plus de personnes avec des vues réelles.",
-    yt_desc:"Développez votre chaîne avec des abonnements et vues authentiques.",
-    ig_desc:"Plus d'abonnés, likes et vues pour votre Instagram.",
-    courses_tag:"🎓 Cours en Ligne",courses_title:"Apprenez. Créez. Réussissez.",courses_sub:"Des cours payants d'experts pour vous aider à créer des produits et gagner de l'argent.",
-    tag_creative:"Créatif",tag_tech:"Technologie",tag_beauty:"Beauté Naturelle",
-    c1_title:"Créer des BD",c1_desc:"Apprenez à créer des bandes dessinées professionnelles. Personnages, histoires, couleurs.",
-    c2_title:"Créer une Application",c2_desc:"Créez votre première application. De zéro jusqu'à la publication sur Play Store.",
-    c3_title:"Savon Naturel",c3_desc:"Techniques de fabrication de savon maison. Formules, emballage et comment les vendre.",
-    c4_title:"Huile Capillaire Naturelle",c4_desc:"Créez des huiles capillaires avec des plantes locales. Soins, vente & business.",
-    c5_title:"Crème pour la Peau",c5_desc:"Formules de crème naturelle. Ingrédients, mélanges et leur effet sur la peau.",
-    c6_title:"Créer un Parfum",c6_desc:"Art de créer des parfums et flacons. Mélange de senteurs, étiquettes et commercialisation.",
-    enroll:"S'inscrire",
-    builder_tag:"🌐 Création de Site Web",builder_title:"Créez Votre Site Aujourd'hui",builder_sub:"Choisissez un plan et commencez à créer votre site en quelques minutes avec Carrd.",
-    plan_lite_name:"Plan Limité",plan_pro_name:"Plan Pro",recommended:"⭐ Recommandé",
-    pl1:"Créer jusqu'à 9 sites",pl2:"2 sites bonus gratuits",pl3:"Support technique",pl4:"Modèles personnalisés",pl5:"Sites illimités",pl6:"Créer pour toujours",
-    pp1:"Sites illimités",pp2:"Créer pour toujours",pp3:"Support prioritaire 24/7",pp4:"Tous les modèles disponibles",pp5:"Domaine personnalisé",pp6:"Statistiques avancées",
-    choose_plan:"Choisir ce Plan",go_carrd:"Commencer à Créer sur Carrd",carrd_note:"Après paiement, nous vous enverrons le lien et les outils directement.",
-    support_tag:"💬 Support & Contact",support_title:"Nous Sommes Là Pour Vous",support_sub:"Écrivez-nous, contactez le PDG ou parlez à notre équipe directement.",
-    ceo_title:"Contacter le PDG",staff_title:"Parler au Staff",
-    hours_title:"Heures de Support",hours_text:"Lundi – Vendredi: 8h – 20h<br>Samedi: 9h – 17h<br>Dimanche: Fermé",
-    form_title:"✉️ Envoyer un Message",
-    s1_q:"Quel est le sujet de votre message?",s1_shop:"🛍 Problème Boutique / Commande",s1_course:"🎓 Cours en Ligne",s1_builder:"🌐 Création de Site Web",s1_other:"💬 Autre Sujet",
-    s2_q:"Quel type de problème avez-vous?",s2_pay:"💳 Problème de paiement",s2_delivery:"📦 Livraison / Accès",s2_info:"ℹ️ Demande d'information",s2_bug:"🐛 Erreur / Bug sur le site",
-    s3_q:"Rédigez votre message:",f_name:"Votre Nom",f_email:"Votre Email",f_msg:"Votre Message",
-    btn_next:"Continuer →",btn_send:"📨 Envoyer le Message",
-    success_title:"Message Reçu!",success_text:"Merci. Notre équipe vous répondra dans moins de 24 heures. Vous recevrez une notification.",
-    notif_text:"Notification activée! Vous recevrez la réponse très bientôt.",
-    total:"Total:",confirm_order:"Confirmer la Commande",
-    footer_rights:"Tous droits réservés.",lang_prompt:"Choisissez votre langue"
+    shop_tag:"🛍 Boutique",shop_title:"Nos Produits & Services",shop_sub:"Liens WhatsApp pour votre business et visibilité.",
+    tab_wha:"💬 Liens WhatsApp",tab_vis:"📈 Visibilité Sociale",buy_now:"Acheter",enroll:"S'inscrire",choose_plan:"Choisir"
   },
   en:{
-    nav_home:"Home",nav_shop:"Shop",nav_courses:"Courses",nav_builder:"Site Builder",nav_support:"Support & Contact",
-    hero_tag:"✦ Haiti's #1 Platform",
-    hero_h1:'Create. <span>Sell. Grow.</span>',
+    nav_shop:"Shop",nav_courses:"Courses",nav_builder:"Site Builder",nav_support:"Support",
+    hero_tag:"✦ Haiti's #1 Platform",hero_h1:'Create. <span>Sell. Grow.</span>',
     hero_sub:"Shop, online courses, and creation tools — all in one place.",
     hero_cta1:"Explore the Shop",hero_cta2:"Browse Courses",
-    shop_tag:"🛍 Shop",shop_title:"Our Products & Services",shop_sub:"WhatsApp links for your business and social media visibility packages.",
-    tab_wha:"💬 WhatsApp Links",tab_vis:"📈 Social Visibility",
-    wha1_title:"Basic Link",wha1_desc:"Personal WhatsApp link for your business. Customers can contact you directly.",
-    wha2_title:"Pro Link",wha2_desc:"WhatsApp link with custom buttons, automated messages and more.",
-    wha3_title:"Business Pack",wha3_desc:"Complete kit: 3 WhatsApp links + product catalog + notification system.",
-    buy_now:"Buy Now",
-    tiktok_desc:"Boost your TikTok followers, views and engagement.",
-    fb_desc:"Your page will reach more people with real views.",
-    yt_desc:"Grow your channel with authentic subscribers and views.",
-    ig_desc:"More followers, likes and views for your Instagram.",
-    courses_tag:"🎓 Online Courses",courses_title:"Learn. Create. Succeed.",courses_sub:"Expert paid courses to help you create products and earn money.",
-    tag_creative:"Creative",tag_tech:"Technology",tag_beauty:"Natural Beauty",
-    c1_title:"Create Comics",c1_desc:"Learn to create professional comics. Characters, stories, colors and publishing.",
-    c2_title:"Create an App",c2_desc:"Build your first application. From zero to publishing on the Play Store.",
-    c3_title:"Natural Soap Making",c3_desc:"Home soap making techniques. Formulas, packaging and how to sell them.",
-    c4_title:"Natural Hair Oil",c4_desc:"Create special hair oils with local plants. Hair care, sales & business.",
-    c5_title:"Skin Cream",c5_desc:"Natural skin cream formulas. Ingredients, mixing and how they work on skin.",
-    c6_title:"Create Perfume",c6_desc:"The art of creating perfumes and bottles. Scent blending, labels and marketing.",
-    enroll:"Enroll Now",
-    builder_tag:"🌐 Website Creation",builder_title:"Build Your Site Today",builder_sub:"Choose a plan and start building your website in minutes with Carrd.",
-    plan_lite_name:"Limited Plan",plan_pro_name:"Pro Plan",recommended:"⭐ Recommended",
-    pl1:"Create up to 9 sites",pl2:"2 bonus sites free",pl3:"Technical support",pl4:"Custom templates",pl5:"Unlimited sites",pl6:"Create forever",
-    pp1:"Unlimited sites",pp2:"Create forever",pp3:"Priority support 24/7",pp4:"All templates available",pp5:"Custom domain",pp6:"Advanced statistics",
-    choose_plan:"Choose This Plan",go_carrd:"Start Building on Carrd",carrd_note:"After payment, we'll send you the link and tools directly.",
-    support_tag:"💬 Support & Contact",support_title:"We're Here For You",support_sub:"Write to us, contact the CEO, or speak to our team directly.",
-    ceo_title:"Contact the CEO",staff_title:"Talk to Staff",
-    hours_title:"Support Hours",hours_text:"Monday – Friday: 8am – 8pm<br>Saturday: 9am – 5pm<br>Sunday: Closed",
-    form_title:"✉️ Send a Message",
-    s1_q:"What is your message about?",s1_shop:"🛍 Shop / Order Issue",s1_course:"🎓 Online Courses",s1_builder:"🌐 Website Creation",s1_other:"💬 Other Topic",
-    s2_q:"What type of problem do you have?",s2_pay:"💳 Payment problem",s2_delivery:"📦 Delivery / Access",s2_info:"ℹ️ Request information",s2_bug:"🐛 Error / Bug on site",
-    s3_q:"Write your message:",f_name:"Your Name",f_email:"Your Email",f_msg:"Your Message",
-    btn_next:"Continue →",btn_send:"📨 Send Message",
-    success_title:"Message Received!",success_text:"Thank you. Our team will reply within 24 hours. You will receive a notification.",
-    notif_text:"Notification activated! You will receive a reply very soon.",
-    total:"Total:",confirm_order:"Confirm Order",
-    footer_rights:"All rights reserved.",lang_prompt:"Choose your language"
+    shop_tag:"🛍 Shop",shop_title:"Our Products",shop_sub:"WhatsApp links and social visibility packages.",
+    tab_wha:"💬 WhatsApp Links",tab_vis:"📈 Social Visibility",buy_now:"Buy Now",enroll:"Enroll",choose_plan:"Choose Plan"
   }
 };
 
@@ -1108,16 +852,13 @@ let currentModalPrice = '';
 function setLang(lang){
   currentLang = lang;
   document.getElementById('lang-screen').style.display = 'none';
-  const ms = document.getElementById('main-site');
-  ms.classList.add('show');
+  document.getElementById('main-site').classList.add('show');
   applyTranslations();
 }
-
 function resetLang(){
   document.getElementById('lang-screen').style.display = 'flex';
   document.getElementById('main-site').classList.remove('show');
 }
-
 function applyTranslations(){
   const t = T[currentLang];
   document.querySelectorAll('[data-i18n]').forEach(el=>{
@@ -1125,11 +866,9 @@ function applyTranslations(){
     if(t[key] !== undefined) el.innerHTML = t[key];
   });
 }
-
 function scrollTo(id){
   document.getElementById(id).scrollIntoView({behavior:'smooth'});
 }
-
 function toggleMobileNav(){
   document.getElementById('mobileNav').classList.toggle('open');
 }
@@ -1144,75 +883,84 @@ function showShopTab(tab, el){
   document.getElementById('tab-visibility').style.display = tab==='visibility'?'block':'none';
 }
 
-// SURVEY FORM
 function selectOption(btn, val){
   btn.closest('.survey-options').querySelectorAll('.survey-opt').forEach(b=>b.classList.remove('selected'));
   btn.classList.add('selected');
   if(btn.closest('#step1')) selectedCategory = val;
   if(btn.closest('#step2')) selectedProblem = val;
 }
-
 function nextStep(step){
+  if(step === 2 && !selectedCategory) {
+    alert(currentLang==='ht'?'Chwazi yon opsyon anvan ou kontinye':'Veuillez choisir une option avant de continuer.');
+    return;
+  }
+  if(step === 3 && !selectedProblem) {
+    alert(currentLang==='ht'?'Chwazi yon opsyon anvan ou kontinye':'Veuillez choisir une option avant de continuer.');
+    return;
+  }
   document.querySelectorAll('.survey-step').forEach(s=>s.classList.remove('active'));
   document.getElementById('step'+step).classList.add('active');
-  for(let i=1;i<=3;i++){
-    document.getElementById('ps'+i).classList.toggle('done', i<=step);
-  }
+  for(let i=1;i<=3;i++) document.getElementById('ps'+i).classList.toggle('done', i<=step);
 }
 
 function submitForm(){
   const name = document.getElementById('f-name').value.trim();
   const email = document.getElementById('f-email').value.trim();
   const msg = document.getElementById('f-msg').value.trim();
-  if(!name||!email||!msg){
-    alert(currentLang==='ht'?'Tanpri ranpli tout chan yo.':currentLang==='fr'?'Veuillez remplir tous les champs.':'Please fill in all fields.');
-    return;
+  if(!name||!email||!msg) { 
+    alert(currentLang==='ht'?'Ranpli tout chan yo anvan':'Veuillez remplir tous les champs.'); 
+    return; 
   }
-  // Send to real-time system (WhatsApp integration)
-  const waMsg = encodeURIComponent(
-    `📬 *Nouvo Mesaj sou NovaMart*\n👤 Non: ${name}\n📧 Imel: ${email}\n📂 Sijè: ${selectedCategory}\n🔎 Pwoblèm: ${selectedProblem}\n\n💬 Mesaj:\n${msg}`
-  );
-  // Open WhatsApp silently in background
+  const waMsg = encodeURIComponent(`📬 *MESAJ SIPÒ G-LEGACY*\n\n👤 *Non:* ${name}\n📧 *Imel:* ${email}\n🗂 *Kategori:* ${selectedCategory}\n⚠️ *Kalite Pwoblèm:* ${selectedProblem}\n💬 *Mesaj:* ${msg}`);
   window.open(`https://wa.me/19043181164?text=${waMsg}`, '_blank');
-  
-  document.querySelectorAll('.survey-step').forEach(s=>s.style.display='none');
-  document.querySelector('.progress-bar').style.display='none';
-  const sm = document.getElementById('successMsg');
-  sm.classList.add('show');
-  setTimeout(()=>{
-    document.getElementById('notifBanner').classList.add('show');
-  },800);
 }
 
-// MODAL
+// MODAL CONTROLLER
 function openModal(product, price){
   currentModalProduct = product;
   currentModalPrice = price;
-  const t = T[currentLang];
   document.getElementById('modal-title').textContent = product;
   document.getElementById('modal-price').textContent = price;
+  
+  document.getElementById('order-form-screen').style.display = 'block';
+  document.getElementById('natcash-screen').style.display = 'none';
+  
   document.getElementById('purchaseModal').classList.add('show');
 }
 function closeModal(){
   document.getElementById('purchaseModal').classList.remove('show');
 }
-function submitOrder(){
+
+function goToNatcash(){
+  const name = document.getElementById('m-name').value.trim();
+  const email = document.getElementById('m-email').value.trim();
+  if(!name || !email){
+    alert(currentLang==='ht'?'Tanpri bay non ak imel ou pou nou trete kòmand lan.':'Veuillez fournir votre nom et email.');
+    return;
+  }
+  document.getElementById('order-form-screen').style.display = 'none';
+  document.getElementById('natcash-screen').style.display = 'block';
+}
+
+function completeOrderWithWhatsApp(){
   const name = document.getElementById('m-name').value.trim();
   const email = document.getElementById('m-email').value.trim();
   const phone = document.getElementById('m-phone').value.trim();
-  if(!name||!email){
-    alert(currentLang==='ht'?'Tanpri bay non ak imel ou.':currentLang==='fr'?'Veuillez fournir votre nom et email.':'Please provide your name and email.');
-    return;
-  }
+  
   const waMsg = encodeURIComponent(
-    `🛒 *Nouvo Kòmand NovaMart*\n👤 Non: ${name}\n📧 Imel: ${email}\n📱 WhatsApp: ${phone||'Non bay'}\n📦 Pwodwi: ${currentModalProduct}\n💰 Pri: ${currentModalPrice}`
+    `💰 *PEMAN NATCASH DIREKTÈ*\n\n` +
+    `📦 *Pwodwi:* ${currentModalProduct}\n` +
+    `💵 *Lajan:* ${currentModalPrice}\n\n` +
+    `👤 *Kliyan:* ${name}\n` +
+    `📧 *Imel:* ${email}\n` +
+    `📱 *WhatsApp:* ${phone || 'Pa bay'}\n\n` +
+    `✅ _Mwen fin fè transfè a sou 43595335, men prèv mwen._`
   );
+  
   window.open(`https://wa.me/19043181164?text=${waMsg}`, '_blank');
   closeModal();
-  alert(currentLang==='ht'?'Mèsi! Kòmand ou voye. N\'ap kontakte ou.':currentLang==='fr'?'Merci! Commande envoyée. Nous vous contacterons.':'Thank you! Order sent. We\'ll contact you.');
 }
 
-// Close modal on overlay click
 document.getElementById('purchaseModal').addEventListener('click', function(e){
   if(e.target === this) closeModal();
 });
