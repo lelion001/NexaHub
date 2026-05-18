@@ -6,7 +6,7 @@
 <title>G-legacy – Shop | Kours | Kreyasyon</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght=700;900&family=DM+Sans:wght=300;400;500;600&family=Space+Mono:wght=400;700&display=swap" rel="stylesheet"/>
 <style>
 :root{
   --gold:#C9A84C;
@@ -369,7 +369,7 @@ section{padding:5rem 2rem;}
 .modal-box{
   background:var(--card);border:1px solid var(--border);
   border-radius:20px;padding:2.2rem;max-width:480px;width:95%;
-  position:relative;
+  position:relative;max-height:90vh;overflow-y:auto;
 }
 .modal-close{
   position:absolute;top:1rem;right:1rem;
@@ -390,6 +390,46 @@ section{padding:5rem 2rem;}
 }
 .natcash-step-box p{font-size:0.95rem;margin-bottom:0.6rem;line-height:1.5;}
 .natcash-num{font-family:'Space Mono',monospace;color:var(--gold);font-weight:700;font-size:1.2rem;background:var(--dark);padding:0.2rem 0.5rem;border-radius:4px;}
+
+/* Upload Area Zone Style */
+.file-upload-zone {
+  border: 2px dashed var(--border);
+  background: var(--dark3);
+  border-radius: 10px;
+  padding: 1.5rem;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin: 1.2rem 0;
+}
+.file-upload-zone:hover {
+  border-color: var(--gold);
+}
+.file-upload-zone input[type="file"] {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.upload-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+.preview-img-box {
+  display: none;
+  margin-top: 1rem;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  max-height: 150px;
+}
+.preview-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
 
 /* RESPONSIVE */
 @media(max-width:900px){
@@ -767,7 +807,7 @@ section{padding:5rem 2rem;}
 
 </div>
 
-<!-- ===== MODAL KÒMANDE AK NATCASH FIXED ===== -->
+<!-- ===== MODAL KÒMANDE AK NATCASH + FOTO PRÈV ===== -->
 <div class="modal-overlay" id="purchaseModal">
   <div class="modal-box">
     <button class="modal-close" onclick="closeModal()">✕</button>
@@ -796,7 +836,7 @@ section{padding:5rem 2rem;}
       </button>
     </div>
 
-    <!-- ETAP 2: ENTÈFAS NATCASH -->
+    <!-- ETAP 2: ENTÈFAS NATCASH + ZÒN FOTO -->
     <div id="natcash-screen">
       <div class="natcash-logo-box">Natcash</div>
       <h3>Enstriksyon Peman</h3>
@@ -804,10 +844,21 @@ section{padding:5rem 2rem;}
         <p>1. Voye kantite lajan an sou nimewo Natcash sa a:</p>
         <p style="text-align:center; margin: 0.8rem 0;"><span class="natcash-num">43 59 53 35</span></p>
         <p>2. Non sou kont lan: <b>Germain Tech / G-legacy</b></p>
-        <p>3. Lè ou fin fè transfè a, klike sou bouton anba a pou voye prèv la (Screenshot) sou WhatsApp pou aktivasyon rapid.</p>
+        <p>3. Pran yon bèl **Screenshot (Foto prèv)** transfè a, epi mete l anba la a:</p>
       </div>
+
+      <!-- ZÒN POU METE FOTO A -->
+      <div class="file-upload-zone">
+        <span class="upload-icon">📸</span>
+        <span id="upload-text" style="font-size: 0.9rem; font-weight: 600; color: var(--text);">Klike pou ajoute foto transfè a</span>
+        <input type="file" id="m-screenshot" accept="image/*" onchange="previewScreenshot(this)"/>
+        <div class="preview-img-box" id="previewBox">
+          <img id="imgPreview" src="" alt="Prèv transfè"/>
+        </div>
+      </div>
+
       <button class="wha-buy" onclick="completeOrderWithWhatsApp()">
-        ✅ Mwen fin peye, Voye prèv sou WhatsApp
+        ✅ Voye kòmand ak Prèv sou WhatsApp
       </button>
     </div>
 
@@ -925,6 +976,11 @@ function openModal(product, price){
   document.getElementById('order-form-screen').style.display = 'block';
   document.getElementById('natcash-screen').style.display = 'none';
   
+  // Raze vye prèv si te genyen nan yon lòt kòmand avan
+  document.getElementById('m-screenshot').value = '';
+  document.getElementById('previewBox').style.display = 'none';
+  document.getElementById('upload-text').textContent = currentLang === 'ht' ? 'Klike pou ajoute foto transfè a' : 'Cliquez pour ajouter la photo du transfert';
+  
   document.getElementById('purchaseModal').classList.add('show');
 }
 function closeModal(){
@@ -942,21 +998,43 @@ function goToNatcash(){
   document.getElementById('natcash-screen').style.display = 'block';
 }
 
+// JERE PREVIEW FOTO A SOU EKRAN AN LÈ YON MOUN CHWAZI L
+function previewScreenshot(input) {
+  const file = input.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      document.getElementById('imgPreview').src = e.target.result;
+      document.getElementById('previewBox').style.display = 'block';
+      document.getElementById('upload-text').textContent = currentLang === 'ht' ? '✅ Foto ajoute avèk siksè!' : '✅ Photo ajoutée avec succès!';
+    }
+    reader.readAsDataURL(file);
+  }
+}
+
 function completeOrderWithWhatsApp(){
   const name = document.getElementById('m-name').value.trim();
   const email = document.getElementById('m-email').value.trim();
   const phone = document.getElementById('m-phone').value.trim();
+  const fileInput = document.getElementById('m-screenshot');
+
+  // Verifye si kliyan an mete foto prèv la vre
+  if (!fileInput.files || fileInput.files.length === 0) {
+    alert(currentLang === 'ht' ? '⚠️ Tanpri ajoute foto prèv transfè Natcash la anvan ou konfime!' : '⚠️ Veuillez ajouter la photo du transfert Natcash avant de confirmer!');
+    return;
+  }
   
   const waMsg = encodeURIComponent(
-    `💰 *PEMAN NATCASH DIREKTÈ*\n\n` +
+    `💰 *KÒMAND AK PEMAN NATCASH*\n\n` +
     `📦 *Pwodwi:* ${currentModalProduct}\n` +
-    `💵 *Lajan:* ${currentModalPrice}\n\n` +
+    `💵 *Pri:* ${currentModalPrice}\n\n` +
     `👤 *Kliyan:* ${name}\n` +
     `📧 *Imel:* ${email}\n` +
     `📱 *WhatsApp:* ${phone || 'Pa bay'}\n\n` +
-    `✅ _Mwen fin fè transfè a sou 43595335, men prèv mwen._`
+    `✅ _Mwen tache foto transfè a anba la a kòm prèv pou kont 43595335 la._`
   );
   
+  // Louvri WhatsApp
   window.open(`https://wa.me/19043181164?text=${waMsg}`, '_blank');
   closeModal();
 }
